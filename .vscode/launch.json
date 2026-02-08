@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "MarkovChain",
+            "request": "launch",
+            "mainClass": "com.example/com.example.data.MarkovChain",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "Launch MarkovChain",
+            "request": "launch",
+            "mainClass": "com.example.data.MarkovChain",
+            "projectName": "Chord-Maker-App",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
