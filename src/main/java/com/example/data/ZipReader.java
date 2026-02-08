@@ -5,6 +5,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.Enumeration;
 import java.util.zip.*;
 
+//reads zip files and prints their contents to the console
+
 public class ZipReader {
 
     public static Iterable<ZipEntry> readZipEntries(String zipPath) throws IOException {
