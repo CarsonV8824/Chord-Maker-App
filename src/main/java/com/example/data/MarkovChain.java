@@ -48,8 +48,8 @@ public class MarkovChain {
 
         while (true) {
             List<String> suffix = dict.get(prefix);
-            if (suffix.size() == 1) {
-                if (Objects.equals(suffix.get(0), "")) return output.stream().reduce("", (a, b) -> a + " " + b);
+            if (suffix == null || suffix.size() == 1) {
+                if (suffix == null || Objects.equals(suffix.get(0), "")) return output.stream().reduce("", (a, b) -> a + " " + b);
                 output.add(suffix.get(0));
             } else {
                 rn = r.nextInt(suffix.size());
@@ -61,9 +61,9 @@ public class MarkovChain {
         }
     }
 
-    public static String generateChords() throws IOException {
+    public static String generateChords(int outputSize) throws IOException {
         String file = ZipReader.readZipAsString("complex_chords.zip");
-        return markov(file, 3, 200);
+        return markov(file, 3, outputSize);
     }
 
     public static void main(String[] args) throws IOException {
