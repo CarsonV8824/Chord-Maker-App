@@ -9,9 +9,6 @@
 <?import javafx.scene.control.TextField?>
 
 <VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SecondaryController">
-    <stylesheets>
-        <String fx:value="@style.css"/>
-    </stylesheets>
     <children>
         <VBox alignment="TOP_LEFT" spacing="10.0">
             <Button fx:id="primaryButton" text="To Primary" onAction="#switchToPrimary"/>
