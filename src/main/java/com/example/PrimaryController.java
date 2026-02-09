@@ -9,6 +9,8 @@ import javafx.scene.control.Alert.AlertType;
 
 import com.example.data.MarkovChain;
 
+import com.example.database.db;
+
 public class PrimaryController {
 
     @FXML
@@ -48,9 +50,18 @@ public class PrimaryController {
                 alert.showAndWait();
                 return;
             }
+            chordListView.getItems().clear();
             String generatedChords = MarkovChain.generateChords(length);
+            generatedChords = generatedChords.stripLeading();
+            generatedChords = generatedChords.replaceAll(" ", "-");
             System.out.println("Generating chords...");
             chordListView.getItems().add(generatedChords);
+            try {
+                db database = new db();
+                database.insertChord(generatedChords);
+            } catch (Exception e) {
+                System.out.println("Error inserting chord into database: " + e.getMessage());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

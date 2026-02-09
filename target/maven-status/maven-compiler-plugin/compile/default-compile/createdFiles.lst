@@ -2,6 +2,7 @@ com\example\PrimaryController.class
 com\example\SecondaryController.class
 module-info.class
 com\example\App.class
+com\example\database\db.class
 com\example\data\ZipReader.class
 com\example\data\MarkovChain.class
 com\example\data\ZipReader$1.class

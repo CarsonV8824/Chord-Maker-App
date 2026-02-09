@@ -3,6 +3,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "db",
+            "request": "launch",
+            "mainClass": "com.example/main.java.com.example.database.db"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "com.example/com.example.App"
