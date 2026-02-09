@@ -61,6 +61,11 @@ public class MarkovChain {
         }
     }
 
+    public static String generateChords() throws IOException {
+        String file = ZipReader.readZipAsString("complex_chords.zip");
+        return markov(file, 3, 200);
+    }
+
     public static void main(String[] args) throws IOException {
         String file = ZipReader.readZipAsString("complex_chords.zip");
         System.out.println(markov(file, 3, 200));

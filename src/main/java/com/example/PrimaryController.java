@@ -4,6 +4,8 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
+import com.example.data.MarkovChain;
+
 public class PrimaryController {
 
     @FXML
@@ -17,8 +19,12 @@ public class PrimaryController {
 
     @FXML
     private void generateChord() {
-        // Placeholder for chord generation logic
-        System.out.println("Generating chords...");
-        chordListView.getItems().add("C Major");
+        try {
+            String generatedChords = MarkovChain.generateChords();
+            System.out.println("Generating chords...");
+            chordListView.getItems().add(generatedChords);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
