@@ -50,7 +50,6 @@ public class PrimaryController {
                 alert.showAndWait();
                 return;
             }
-            chordListView.getItems().clear();
             String generatedChords = MarkovChain.generateChords(length);
             generatedChords = generatedChords.stripLeading();
             generatedChords = generatedChords.replaceAll(" ", "-");
