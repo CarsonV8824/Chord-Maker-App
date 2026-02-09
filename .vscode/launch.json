@@ -3,6 +3,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.example/com.example.App"
+        },
+        {
+            "type": "java",
             "name": "MarkovChain",
             "request": "launch",
             "mainClass": "com.example/com.example.data.MarkovChain",
