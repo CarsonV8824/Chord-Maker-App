@@ -1,3 +1,17 @@
-Button {
-    -fx-background-color: blue;
+.button {
+    -fx-background-color: rgb(0,0,230);
+    -fx-text-fill: white;
+}
+
+.VBox {
+    -fx-background-color: rgb(0, 0, 0);
+}
+
+#savedChordsListView {
+    -fx-background-color: rgb(0, 0, 0);
+    -fx-border-color: rgb(0, 0, 230);
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-control-inner-background: rgb(0, 0, 0);
+    -fx-text-fill: white;
 }
