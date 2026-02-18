@@ -11,7 +11,7 @@
 <VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SecondaryController" stylesheets="@secondary.css">
     <children>
         <VBox alignment="TOP_LEFT" spacing="10.0">
-            <Button fx:id="primaryButton" text="To Primary" onAction="#switchToPrimary"/>
+            <Button fx:id="primaryButton" text="Generate Chords" onAction="#switchToPrimary"/>
         </VBox>
         <HBox alignment="TOP_CENTER" spacing="20.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
             <ListView fx:id="savedChordsListView" prefHeight="200.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
