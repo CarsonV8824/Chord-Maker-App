@@ -4,6 +4,7 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -18,6 +19,9 @@ public class PrimaryController {
 
     @FXML
     private TextField chordLengthField;
+
+    @FXML
+    private ChoiceBox<String> chordTypeChoiceBox;
 
     @FXML
     private void switchToSecondary() throws IOException {
@@ -50,7 +54,24 @@ public class PrimaryController {
                 alert.showAndWait();
                 return;
             }
-            String generatedChords = MarkovChain.generateChords(length);
+            String generatedChords;
+            switch (chordTypeChoiceBox.getValue()) {
+                case "Popular":
+                    generatedChords = MarkovChain.generatePopularChords(length);
+                    break;
+                case "Jazz":
+                    generatedChords = MarkovChain.generateJazzChords(length);
+                    break;
+                default:
+                    System.out.println("Invalid chord type selected");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Info");
+                    alert.setHeaderText("Invalid Input");
+                    alert.setContentText("Please select a valid chord type.");
+                    alert.showAndWait();
+                    return;
+            }
+            
             generatedChords = generatedChords.stripLeading();
             generatedChords = generatedChords.replaceAll(" ", "-");
             System.out.println("Generating chords...");
@@ -58,6 +79,7 @@ public class PrimaryController {
             try {
                 db database = new db();
                 database.insertChord(generatedChords);
+                database.close();
             } catch (Exception e) {
                 System.out.println("Error inserting chord into database: " + e.getMessage());
             }

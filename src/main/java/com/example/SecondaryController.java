@@ -19,6 +19,7 @@ public class SecondaryController {
             for (String chord : database.getChords()) {
                 savedChordsListView.getItems().add(chord);
             }
+            database.close();
         } catch (Exception e) {
             System.out.println("Error loading saved chords: " + e.getMessage());
         }

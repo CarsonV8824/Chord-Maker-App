@@ -38,12 +38,22 @@ public class db {
 
     public void deleteCertainChord(String chord) throws Exception {
         this.stmt.execute("DELETE FROM chords WHERE chord = '" + chord + "'");
-    }   
+    }
+
+    public void close() throws Exception {
+        if (this.stmt != null) {
+            this.stmt.close();
+        }
+        if (this.conn != null) {
+            this.conn.close();
+        }
+    }
 
     public static void main(String[] args) throws Exception {
         db database = new db();
         database.insertChord("C-E-G");
         database.getChords();
         database.deleteCertainChord("C-E-G");
+        database.close();
     }
 }

@@ -7,6 +7,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 
 <VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PrimaryController">
    <children>
@@ -18,6 +21,14 @@
          <VBox alignment="TOP_LEFT" spacing="10.0">
             <Label text="Length of Chord (4-16):" />
             <TextField fx:id="chordLengthField" promptText="Enter chord length" />
+            <ChoiceBox fx:id="chordTypeChoiceBox">
+               <items>
+                     <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Popular"/>
+                        <String fx:value="Jazz"/>
+                     </FXCollections>
+               </items>
+            </ChoiceBox>
             <Button text="Generate Chord" onAction="#generateChord"/>
          </VBox>
       </HBox>
